@@ -184,7 +184,7 @@ static NSString *const kNormalCell = @"kNormalCell";
         for (NSURL *url in sounds) {
             if ([[[[url lastPathComponent] componentsSeparatedByString:@"."] firstObject] isEqualToString:value]) {
                 [sortSounds addObject:url];
-                NSLog(@"%@",url.lastPathComponent);
+//                NSLog(@"%@",url.lastPathComponent);
                 break;
             }
         }
