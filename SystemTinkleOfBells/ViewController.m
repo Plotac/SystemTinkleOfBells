@@ -79,7 +79,7 @@ static NSString *const kNormalCell = @"kNormalCell";
     chineseLab.text = name_Chinese;
     [cell.contentView addSubview:chineseLab];
     
-    UILabel *englishLab = [[UILabel alloc]initWithFrame:CGRectMake(15 + 120 + 20, 0, 120, 50)];
+    UILabel *englishLab = [[UILabel alloc]initWithFrame:CGRectMake(15 + 120 + 10, 0, 240, 50)];
     englishLab.textColor = [UIColor lightGrayColor];
     englishLab.font = [UIFont systemFontOfSize:15];
 //    englishLab.text = name_English;//从写死的plist文件取
@@ -121,7 +121,7 @@ static NSString *const kNormalCell = @"kNormalCell";
     cn_titleLab.textColor = [UIColor blackColor];
     [headerView addSubview:cn_titleLab];
     
-    UILabel *en_titleLab = [[UILabel alloc]initWithFrame:CGRectMake(10 + 100 + 20, 10, 100, 20)];
+    UILabel *en_titleLab = [[UILabel alloc]initWithFrame:CGRectMake(10 + 100 + 10, 10, 100, 20)];
     en_titleLab.text = @"英文名称";
     en_titleLab.font = [UIFont systemFontOfSize:14];
     en_titleLab.textColor = [UIColor lightGrayColor];
@@ -182,9 +182,9 @@ static NSString *const kNormalCell = @"kNormalCell";
     NSMutableArray *sortSounds = @[].mutableCopy;
     for (NSString *value in values) {
         for (NSURL *url in sounds) {
-            if ([[url lastPathComponent] containsString:value]) {
+            if ([[[[url lastPathComponent] componentsSeparatedByString:@"."] firstObject] isEqualToString:value]) {
                 [sortSounds addObject:url];
-//                NSLog(@"%@",url.lastPathComponent);
+                NSLog(@"%@",url.lastPathComponent);
                 break;
             }
         }
